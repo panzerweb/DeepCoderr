@@ -1,0 +1,26 @@
+
+.delete-button svg{
+    transition: all 0.2s linear;
+}
+.delete-button:hover svg{
+    color: var(--red) !important;
+}
+.edit-button svg{
+    transition: all 0.2s linear;
+}
+.edit-button:hover svg{
+    color: var(--green) !important;
+}
+
+[contenteditable="true"] {
+    background-color: #f8f9fa; /* light neutral background */
+    padding: 0.5rem;
+    border: 1px solid #dee2e6; /* soft gray border */
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.4s linear, border 0.2s ease;
+    min-width: 100px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+

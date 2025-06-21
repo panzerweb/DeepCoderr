@@ -1,0 +1,33 @@
+
+*{
+    font-family: 'Fira Code', monospace;
+}
+
+:root{
+    --background: #8540f5;
+    --primary: #ffc107;
+    --text: #ffffff;
+    --red: #dc3545;
+    --green: #198754;
+    --gray: #adb5bd;
+}
+
+body{
+    background-color: var(--background) !important;
+}
+
+/* Page Cards */
+.page-card{
+    transition: all 0.1s linear;
+}
+.page-card:hover{
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+.page-card img{
+    transition: all 0.5s linear;
+}
+.page-card:hover img{
+    transform: rotate(360deg);
+}
+
