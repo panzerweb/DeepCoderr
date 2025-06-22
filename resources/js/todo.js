@@ -26,6 +26,8 @@ export let acceptData = () => {
 
     data.push({
         task_name: textInput.value,
+        completed: false,
+        checkState: false,
         created_at: date.toDateString(),
     })
     localStorage.setItem('data', JSON.stringify(data));
@@ -55,7 +57,13 @@ export let renderData = () => {
             `
                 <div id="${id}" class="border rounded mb-2 bg-light shadow">
                     <div class='d-flex justify-content-between align-items-center px-2 py-1 pb-2'>
-                        <h5 class="mb-0 text-truncate" contenteditable='false' id='task_name_${id}'>${task.task_name}</h5>
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            <input type="checkbox" class="btn-check" id="btncheck${id}" onchange='checkTask(${id})' autocomplete="off">
+                            <label class="btn btn-outline-warning rounded-circle" for="btncheck${id}"></label>
+
+                            <h5 class="mb-0 mx-2 text-truncate" contenteditable='false' id='task_name_${id}'>${task.task_name}</h5>
+
+                        </div>
 
                         <div>
                             <button class="btn edit-button p-0 px-1" onclick="editTask(${id})">
@@ -87,8 +95,41 @@ export let renderData = () => {
                 </div>
             `)
         })
+
+        data.forEach((task, id) => {
+            let textValue = document.getElementById(`task_name_${id}`);
+            let checkBox = document.getElementById(`btncheck${id}`);
+
+            if (textValue) {
+                checkBox.checked = task.checkState;
+                textValue.style.textDecoration = task.completed ? 'line-through' : 'none';
+            }
+        });
     }
 
+}
+
+export function checkTask(taskId){
+    let checkBox = document.getElementById(`btncheck${taskId}`);
+    let textValue = document.getElementById(`task_name_${taskId}`);
+
+    
+    if (checkBox.checked) {
+        textValue.style.textDecoration = "line-through";
+        data[taskId].checkState = checkBox.checked,
+        data[taskId].completed = true;
+
+        localStorage.setItem("data", JSON.stringify(data));
+        console.log(checkBox.checked);
+        
+    } else {
+        textValue.style.textDecoration = "none";
+        data[taskId].checkState = checkBox.checked,
+        data[taskId].completed = false;
+
+        localStorage.setItem("data", JSON.stringify(data));
+        console.log(checkBox.checked);
+    }
 }
 
 // Delete a task!

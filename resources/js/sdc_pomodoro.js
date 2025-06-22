@@ -24,6 +24,8 @@ function updateTimer(){
     if(hours === 0 && minutes == 0 && seconds == 0){
         clearInterval(timer);
         alert('Time is up!');
+        resetTimer();
+        formatTime(hours, minutes, seconds);
         return;
     }
     // Sorry for triple if statements HUHU!
