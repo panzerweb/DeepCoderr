@@ -5,6 +5,8 @@ let seconds = 0;
 let isPaused = false;
 let clicked = false;
 
+
+
 export function playTimer(){
     if (!clicked) {
         timer = setInterval(() => {
@@ -13,6 +15,31 @@ export function playTimer(){
         
         isPaused = false;
         clicked = true;
+
+        if(hours === 0 && minutes == 0 && seconds == 0){
+            clearInterval(timer);
+            Swal.fire({
+                title: "Set a time!",
+                icon: "warning",
+                timer: 1000,
+                showConfirmButton: false,
+                // backdrop: false,
+                width: '20em'
+            });
+            resetTimer();
+            formatTime(hours, minutes, seconds);
+            return;
+        }
+
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Timer Starts",
+            showConfirmButton: false,
+            timer: 1500,
+            backdrop: false,
+            width: '20em'
+        });
     }
     console.log(clicked);
 }
@@ -23,7 +50,14 @@ function updateTimer(){
 
     if(hours === 0 && minutes == 0 && seconds == 0){
         clearInterval(timer);
-        alert('Time is up!');
+        Swal.fire({
+            title: "Time's Up!",
+            icon: "warning",
+            timer: 1000,
+            showConfirmButton: false,
+            // backdrop: false,
+            width: '20em'
+        });
         resetTimer();
         formatTime(hours, minutes, seconds);
         return;
@@ -65,6 +99,17 @@ export function pauseTimer(){
     if (isPaused) {
         clearInterval(timer);
         clicked = false;
+
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Paused!",
+            showConfirmButton: false,
+            timer: 1500,
+            backdrop: false,
+            width: '20em'
+        });
+
         console.log(isPaused);
     }
     // else{

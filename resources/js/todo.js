@@ -14,6 +14,15 @@ export let formValidation = () => {
         console.log("No Task Inserted!");
     } else {
         console.log("Task Inserted Successfully");
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Task Added!",
+            showConfirmButton: false,
+            timer: 1500,
+            backdrop: false,
+            width: '20em'
+        });
         acceptData();
         renderData();
         resetForm();
@@ -135,6 +144,17 @@ export function checkTask(taskId){
 // Delete a task!
 export function deleteTask(taskId) {
     data.splice(taskId, 1);
+
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Task Deleted!",
+        showConfirmButton: false,
+        timer: 1500,
+        backdrop: false,
+        width: '20em'
+    });
+
     localStorage.setItem("data", JSON.stringify(data));
     renderData();
 
@@ -187,6 +207,16 @@ export function confirmEdit(taskId){
 
     editButton.classList.remove('d-none');
     checkButton.classList.add('d-none');
+
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Task Updated!",
+        showConfirmButton: false,
+        timer: 1500,
+        backdrop: false,
+        width: '20em'
+    });
 
     console.log(data);
 }
