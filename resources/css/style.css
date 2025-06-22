@@ -10,6 +10,7 @@
     --red: #dc3545;
     --green: #198754;
     --gray: #adb5bd;
+    --purple: #7229e7;
 }
 
 body{
@@ -31,3 +32,11 @@ body{
     transform: rotate(360deg);
 }
 
+/* Timer Wrapper */
+.timer-wrapper{
+    background: var(--purple) !important;
+}
+/* Task Wrapper */
+.task-wrapper{
+    background: var(--purple) !important;
+}

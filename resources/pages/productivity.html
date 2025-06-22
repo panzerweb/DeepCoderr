@@ -45,10 +45,10 @@
 
         <main>
             <div class="container">
-                <div class="row justify-content-center align-items-center my-5">
+                <div class="row justify-content-center align-items-center my-5 gap-2">
                     <!-- Pomodoro Timer -->
                     <div class="col-12 col-lg-4">
-                        <div class="shadow p-4">
+                        <div class="shadow border border-1 border-dark p-4 timer-wrapper rounded-3">
                             <div class="supercoder-gif-card">
                                 <img src="../../assets/img/supercoder.jpg" alt="Supercode-gif" class="w-100 img-fluid">
                             </div>
@@ -93,21 +93,23 @@
 
                     <!-- Todo List -->
                     <div class="col-12 col-lg-6 align-self-start">
-                        <form class="d-flex" id="form-element">
-                            <div class="col mt-3">
-                                <h2 class="fw-bold text-light text-center text-md-start">Your Tasks</h2>
-                                <div class="input-group mb-3">
-                                    <input type="text" 
-                                            class="form-control" 
-                                            placeholder="Your Tasks here" 
-                                            id="task-input"
-                                    >
-                                    <button class="btn btn-warning" type="submit" id="add-button">Add</button>
+                        <div class="shadow task-wrapper border border-1 border-dark p-4 rounded-3">
+                            <form class="d-flex" id="form-element">
+                                <div class="col mt-3">
+                                    <h2 class="fw-bold text-light text-center text-md-start">Your Tasks</h2>
+                                    <div class="input-group mb-3">
+                                        <input type="text" 
+                                                class="form-control" 
+                                                placeholder="Your Tasks here" 
+                                                id="task-input"
+                                        >
+                                        <button class="btn btn-warning" type="submit" id="add-button">Add</button>
+                                    </div>
                                 </div>
+                            </form>
+                            <div id="task-div">
+                                
                             </div>
-                        </form>
-                        <div id="task-div">
-                            
                         </div>
                     </div>
                 </div>

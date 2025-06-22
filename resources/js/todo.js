@@ -68,9 +68,9 @@ export let renderData = () => {
                     <div class='d-flex justify-content-between align-items-center px-2 py-1 pb-2'>
                         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                             <input type="checkbox" class="btn-check" id="btncheck${id}" onchange='checkTask(${id})' autocomplete="off">
-                            <label class="btn btn-outline-warning rounded-circle" for="btncheck${id}"></label>
+                            <label class="btn btn-outline-warning rounded" for="btncheck${id}"></label>
 
-                            <h5 class="mb-0 mx-2 text-truncate" contenteditable='false' id='task_name_${id}'>${task.task_name}</h5>
+                            <h5 class="mb-0 mx-2 text-truncate text-wrap" contenteditable='false' id='task_name_${id}'>${task.task_name}</h5>
 
                         </div>
 
