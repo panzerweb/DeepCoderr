@@ -10,5 +10,9 @@
     {
         "changes": "Minor details such as 'mark as complete' in the details section.",
         "previousVersion": false
+    },
+    {
+        "changes": "Minor UI Enhancements.",
+        "previousVersion": false
     }
 ]
