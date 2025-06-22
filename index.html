@@ -15,6 +15,9 @@
 
         <!-- CSS Links -->
         <link rel="stylesheet" href="./resources/css/style.css">
+
+        <!-- Scripts and Links -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
     <body>
@@ -84,9 +87,47 @@
             <!-- place footer here -->
         </footer>
         <!-- Bootstrap JavaScript Libraries -->
-         <script src="./resources/css/bootstrap5/js/bootstrap.bundle.min.js"></script>
-        
-         <script type="module" src="./app.js"></script>
+        <script src="./resources/css/bootstrap5/js/bootstrap.bundle.min.js"></script>
+    
+        <script type="module" src="./app.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                fetch('updates.json')
+                .then(response => response.json())
+                .then(data => {
+                    const changesList = data.filter(version => version.previousVersion == false)
+                                            .map(update => `<li>${update.changes}</li>`)
+                                            .join('');
+                    Swal.fire({
+                        position: 'bottom-end',
+                        title: "🚀 What's New!",
+                        html: 
+                        `
+                            <div style="text-align: left; font-size: 14px;">
+                            <p>We’ve made some exciting updates for <strong>DeepCoderr version 1.1</strong>:</p>
+                            <ul style="padding-left: 20px; margin: 0;">
+                                ${changesList}
+                            </ul>
+                            <p style="margin-top: 10px;">Stay tuned for more updates. Thanks for using <strong>DeepCoderr!</strong></p>
+                            </div>
+                        `,
+                        // icon: "success",
+                        backdrop: false,
+                        showConfirmButton: true,
+                        toast: true,
+                        // timer: 10000,
+                        timerProgressBar: true,
+                        draggable: true
+                    });
+                    console.log(changesList);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+
+            })
+        </script>
 
     </body>
 </html>

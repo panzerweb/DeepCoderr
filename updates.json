@@ -1,0 +1,14 @@
+[
+    {
+        "changes": "Added task completion with a strikethrough style for completed task.",
+        "previousVersion": false
+    },
+    {
+        "changes": "Pop ups for every major operations such as adding task, deleting, and starting timer.",
+        "previousVersion": false
+    },
+    {
+        "changes": "Minor details such as 'mark as complete' in the details section.",
+        "previousVersion": false
+    }
+]

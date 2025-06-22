@@ -96,9 +96,16 @@ export let renderData = () => {
                     <div class="details" id="task_details">
                         <details>
                             <summary class='bg-warning w-100 px-3'>...</summary>
-                            <small class='px-3 text-secondary'>
-                                Created At: ${task.created_at}
-                            </small>
+                            <div>
+                                <small class='px-3 text-secondary'>
+                                    <span class='fw-semibold'>Created At:</span> ${task.created_at}
+                                </small>
+                            </div>
+                            <div>
+                                <small class='px-3 text-secondary'>
+                                    <span class='fw-semibold'>Marked as completed:</span> ${task.completed}
+                                </small>
+                            </div>
                         </details>
                     </div>
                 </div>
