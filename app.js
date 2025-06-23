@@ -1,4 +1,4 @@
-import { playTimer, pauseTimer, resetTimer, reduceTime, plusTime } from "./resources/js/sdc_pomodoro.js";
+import { playTimer, pauseTimer, resetTimer, reduceTime, plusTime, restoreTimer } from "./resources/js/sdc_pomodoro.js";
 import { formValidation, acceptData, renderData, deleteTask, editTask, confirmEdit, checkTask } from "./resources/js/todo.js";
 
 //Pomodoro Timer
@@ -7,6 +7,9 @@ window.pauseTimer = pauseTimer;
 window.resetTimer = resetTimer;
 window.reduceTime = reduceTime;
 window.plusTime = plusTime;
+window.addEventListener("load", () => {
+    restoreTimer();
+})
 
 //** Todo-List
 window.formValidation = formValidation;
@@ -21,5 +24,21 @@ window.checkTask = checkTask;
 let returnHome = document.getElementById("returnHome");
 
 returnHome.addEventListener('click', () => {
-    window.location.href = '../../index.html';
+    Swal.fire({
+        title: "Your progress will be paused!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Continue",
+        width: '20em'
+    }).then((result) => {
+    if (result.isConfirmed) {
+        window.location.href = '../../index.html';
+    }
+    else{
+        return;
+    }
+    });
+    
 })

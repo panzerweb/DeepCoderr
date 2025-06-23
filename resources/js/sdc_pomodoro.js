@@ -5,7 +5,14 @@ let seconds = 0;
 let isPaused = false;
 let clicked = false;
 
-
+// For Session Storage, to persist current timer
+let timerData = {
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    isPaused: false,
+    clicked: false,
+};
 
 export function playTimer(){
     if (!clicked) {
@@ -45,9 +52,17 @@ export function playTimer(){
 }
 
 function updateTimer(){
-    const timerDisplay = document.getElementById("timer")
+    const timerDisplay = document.getElementById("timer");
     timerDisplay.textContent = formatTime(hours, minutes, seconds);
+    
+        timerData.hours = hours;
+        timerData.minutes = minutes;
+        timerData.seconds = seconds;
+        timerData.isPaused = isPaused;
+        timerData.clicked = clicked;
+        sessionStorage.setItem("current_time", JSON.stringify(timerData));
 
+    
     if(hours === 0 && minutes == 0 && seconds == 0){
         clearInterval(timer);
         Swal.fire({
@@ -83,6 +98,28 @@ function updateTimer(){
                     hours--;
                 }
             }
+        }
+    }
+}
+
+export function restoreTimer(){
+    const savedTime = sessionStorage.getItem("current_time");
+    if (savedTime) {
+        const timeData = JSON.parse(savedTime);
+        hours = timeData.hours;
+        minutes = timeData.minutes;
+        seconds = timeData.seconds;
+        isPaused = timeData.isPaused;
+        clicked = timeData.clicked;
+
+        const timerDisplay = document.getElementById("timer");
+        timerDisplay.textContent = formatTime(hours, minutes, seconds);
+
+        // If timer was previously running, resume it
+        if (!isPaused && clicked && (hours > 0 || minutes > 0 || seconds > 0)) {
+            timer = setInterval(() => {
+                updateTimer();
+            }, 1000);
         }
     }
 }
@@ -128,6 +165,8 @@ export function resetTimer(){
 
     const timerDisplay = document.getElementById("timer")
     timerDisplay.textContent = formatTime(hours, minutes, seconds);
+
+    sessionStorage.removeItem("current_time");
 }
 
 export function reduceTime() {
