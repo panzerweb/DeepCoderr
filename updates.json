@@ -38,7 +38,13 @@
     {
         "changes": "Notifies user when timer stops.",
         "previousVersion": false,
-        "version_date": "June 23, 2025",
+        "version_date": "June 26, 2025",
+        "version_number": 1.2
+    },
+    {
+        "changes": "Adds app version history and update change log.",
+        "previousVersion": false,
+        "version_date": "June 26, 2025",
         "version_number": 1.2
     }
 ]
