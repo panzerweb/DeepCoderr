@@ -1,4 +1,4 @@
-import { playTimer, pauseTimer, resetTimer, reduceTime, plusTime, restoreTimer } from "./resources/js/sdc_pomodoro.js";
+import { playTimer, pauseTimer, resetTimer, reduceTime, plusTime, restoreTimer, updateTimer } from "./resources/js/sdc_pomodoro.js";
 import { formValidation, acceptData, renderData, deleteTask, editTask, confirmEdit, checkTask } from "./resources/js/todo.js";
 
 //Pomodoro Timer
@@ -7,6 +7,7 @@ window.pauseTimer = pauseTimer;
 window.resetTimer = resetTimer;
 window.reduceTime = reduceTime;
 window.plusTime = plusTime;
+window.updateTimer = updateTimer;
 window.addEventListener("load", () => {
     restoreTimer();
 })

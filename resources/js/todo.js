@@ -103,7 +103,7 @@ export let renderData = () => {
                             </div>
                             <div>
                                 <small class='px-3 text-secondary'>
-                                    <span class='fw-semibold'>Marked as completed:</span> ${task.completed}
+                                    <span class='fw-semibold'>Marked As Complete: </span> ${task.completed}
                                 </small>
                             </div>
                         </details>
