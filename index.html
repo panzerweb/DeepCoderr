@@ -40,7 +40,7 @@
             </nav>
         </header>
         <main>
-            <div class="container my-3">
+            <div class="container my-3 index-container">
                 <div class="row justify-content-center align-items-center">
                     <div class="text-center text-light">
                         <h1 class="display-4 fw-bold text-warning">DeepCoderr</h1>
@@ -93,6 +93,8 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
+                let version = 1.2;
+
                 fetch('updates.json')
                 .then(response => response.json())
                 .then(data => {
@@ -105,11 +107,12 @@
                         html: 
                         `
                             <div style="text-align: left; font-size: 14px;">
-                            <p>We’ve made some exciting updates for <strong>DeepCoderr version 1.1</strong>:</p>
+                            <p>We’ve made some exciting updates for <strong>DeepCoderr version ${version}</strong>:</p>
                             <ul style="padding-left: 20px; margin: 0;">
                                 ${changesList}
                             </ul>
                             <p style="margin-top: 10px;">Stay tuned for more updates. Thanks for using <strong>DeepCoderr!</strong></p>
+                            <a href="resources/pages/app_versions.html">See Versions</a>
                             </div>
                         `,
                         // icon: "success",
@@ -127,13 +130,6 @@
                 })
 
             })
-            
-        </script>
-
-        <button id="notif">Notify me!</button>
-
-        <!-- Notifications API -->
-        <script>
             
         </script>
     </body>

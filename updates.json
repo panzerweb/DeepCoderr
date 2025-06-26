@@ -1,18 +1,44 @@
 [
     {
         "changes": "Added task completion with a strikethrough style for completed task.",
-        "previousVersion": false
+        "previousVersion": true,
+        "version_date": "June 22, 2025",
+        "version_number": 1.1
     },
     {
         "changes": "Pop ups for every major operations such as adding task, deleting, and starting timer.",
-        "previousVersion": false
+        "previousVersion": true,
+        "version_date": "June 22, 2025",
+        "version_number": 1.1
     },
     {
         "changes": "Minor details such as 'mark as complete' in the details section.",
-        "previousVersion": false
+        "previousVersion": true,
+        "version_date": "June 22, 2025",
+        "version_number": 1.1
     },
     {
         "changes": "Minor UI Enhancements.",
-        "previousVersion": false
+        "previousVersion": true,
+        "version_date": "June 22, 2025",
+        "version_number": 1.1
+    },
+    {
+        "changes": "Sliding images initialized.",
+        "previousVersion": false,
+        "version_date": "June 23, 2025",
+        "version_number": 1.2
+    },
+    {
+        "changes": "Stores current time on local storage.",
+        "previousVersion": false,
+        "version_date": "June 23, 2025",
+        "version_number": 1.2
+    },
+    {
+        "changes": "Notifies user when timer stops.",
+        "previousVersion": false,
+        "version_date": "June 23, 2025",
+        "version_number": 1.2
     }
 ]

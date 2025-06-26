@@ -14,8 +14,9 @@
 }
 
 body{
-    background-color: var(--background) !important;
+    background-color: var(--background)  !important;
 }
+.navbar{background-color: var(--background);}
 
 /* Page Cards */
 .page-card{
