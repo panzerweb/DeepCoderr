@@ -46,5 +46,11 @@
         "previousVersion": false,
         "version_date": "June 26, 2025",
         "version_number": 1.2
+    },
+    {
+        "changes": "Alarm sound when timer is up.",
+        "previousVersion": false,
+        "version_date": "June 27, 2025",
+        "version_number": 1.2
     }
 ]

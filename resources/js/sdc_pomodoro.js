@@ -5,6 +5,9 @@ let seconds = 0;
 let isPaused = false;
 let clicked = false;
 
+// Default Audio
+let audioAlarm = new Audio('../../assets/audio/arriving.mp3');
+
 // For Session Storage, to persist current timer
 let timerData = {
     hours: 0,
@@ -22,9 +25,9 @@ export function playTimer(){
         
         isPaused = false;
         clicked = true;
-
         if(hours === 0 && minutes == 0 && seconds == 0){
             clearInterval(timer);
+            
             Swal.fire({
                 title: "Set a time!",
                 icon: "warning",
@@ -35,6 +38,7 @@ export function playTimer(){
             });
             resetTimer();
             formatTime(hours, minutes, seconds);
+            audioAlarm.play();
             return;
         }
 
@@ -65,14 +69,23 @@ export function updateTimer(){
     
     if(hours === 0 && minutes == 0 && seconds == 0){
         clearInterval(timer);
+        audioAlarm.loop = true;
+        audioAlarm.play();
         Swal.fire({
             title: "Time's Up!",
             icon: "warning",
             // timer: 1000,
-            showConfirmButton: true,
+            showConfirmButton: false,
+            showCancelButton: true,
             // backdrop: false,
             width: '20em'
-        });
+        }).then((result) => {
+            
+            if (result.dismiss === Swal.DismissReason.cancel) {
+                audioAlarm.loop = false;
+                audioAlarm.pause();
+            }
+        })
         resetTimer();
         formatTime(hours, minutes, seconds);
         notifyMe();
@@ -100,7 +113,10 @@ export function updateTimer(){
                 }
             }
         }
+        audioAlarm.loop = false;
     }
+
+    audioAlarm.loop = false;
 }
 
 export function restoreTimer(){
@@ -202,35 +218,12 @@ export function plusTime() {
 }
 
 function notifyMe() {
-    const notification = ''; 
-        if (!("Notification" in window)) {
-            // Check if the browser supports notifications
-            alert("This browser does not support desktop notification");
-        } else if (Notification.permission === "granted") {
-            // Check whether notification permissions have already been granted;
-            // if so, create a notification
-            notification = new Notification(
-                "⏰ Time's Up!",
-                {
-                    body: `Current Time: ${formatTime(hours, minutes, seconds)}`
-                }
-            );
-            // …
-        } else if (Notification.permission !== "denied") {
-            // We need to ask the user for permission
-            Notification.requestPermission().then((permission) => {
-            // If the user accepts, let's create a notification
-            if (permission === "granted") {
-                notification = new Notification(
-                    "⏰ Time's Up!",
-                    {
-                        body: `Current Time: ${formatTime(hours, minutes, seconds)}`
-                    }
-                );
-            }
-            });
-        }
+    let notification = '';
 
-        // At last, if the user has denied notifications, and you
-        // want to be respectful there is no need to bother them anymore.
+    if (Notification.permission == 'granted') {
+        notification = new Notification(
+            "Time's Up!"
+        )
+    }
+
 }
