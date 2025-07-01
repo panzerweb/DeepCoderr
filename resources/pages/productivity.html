@@ -57,7 +57,23 @@
                     <!-- Pomodoro Timer -->
                     <div class="col-12 col-lg-4">
                         <div class="shadow border border-1 border-dark p-4 timer-wrapper rounded-3">
-                            <section class="splide" aria-label="Splide Basic HTML Example">
+                            <div class="d-grid gap-2">
+                                <button
+                                    type="button"
+                                    name="choose-avatar-btn"
+                                    id="choose-avatar-btn"
+                                    class="btn btn-warning rounded-0"
+                                >
+                                    Choose Avatar
+                                </button>
+                            </div>
+
+                            <div class="current-avatar-div">
+                                <div class="supercoder-gif-card" id="current-avatar">
+                                    
+                                </div>
+                            </div>
+                            <section class="splide d-none" aria-label="Splide Basic HTML Example">
                                 <div class="splide__track">
                                         <ul class="splide__list">
                                             <li class="splide__slide">
@@ -76,8 +92,20 @@
                                                 </div>
                                             </li>
                                         </ul>
+                                    
                                 </div>
                             </section>
+                            <div class="d-grid gap-2">
+                                <button
+                                    type="button"
+                                    name="save-avatar-btn"
+                                    id="save-avatar-btn"
+                                    class="btn btn-warning rounded-0 d-none"
+                                >
+                                    Save Avatar
+                                </button>
+                            </div>
+                            
                             <div class="timer-circle bg-dark display-3 border-warning text-center">
                                 <span class="text-light" id="timer">00:00:00</span>
                             </div>
@@ -157,6 +185,7 @@
                     perMove: 1,
                 } );
                 splide.mount();
+                console.log(splide);
             } );
         </script>
         
