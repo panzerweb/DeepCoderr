@@ -52,5 +52,11 @@
         "previousVersion": false,
         "version_date": "June 27, 2025",
         "version_number": 1.2
+    },
+    {
+        "changes": "Chosen avatar can now be saved",
+        "previousVersion": false,
+        "version_date": "July 02, 2025",
+        "version_number": 1.2
     }
 ]

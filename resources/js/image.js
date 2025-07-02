@@ -5,12 +5,15 @@ chooseBtn.addEventListener("click", () => {
     let splideSection = document.querySelector(".splide");
     let saveBtn = document.getElementById("save-avatar-btn");
     let currentAvatarWrapper = document.querySelector(".supercoder-gif-card");
+    console.log(currentAvatarWrapper);
 
     if (chooseBtn) {
         splideSection.classList.toggle("d-none");
         saveBtn.classList.toggle("d-none");
         currentAvatarWrapper.classList.toggle("d-none");
     }
+
+
 })
 
 export function saveAvatar(){

@@ -28,6 +28,10 @@
         https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
         "></script>
 
+        <script>
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        </script>
 
     </head>
 
@@ -63,6 +67,7 @@
                                     name="choose-avatar-btn"
                                     id="choose-avatar-btn"
                                     class="btn btn-warning rounded-0"
+                                    
                                 >
                                     Choose Avatar
                                 </button>

@@ -52,3 +52,31 @@ fetch('../../updates.json')
     
         newVersion.innerHTML = changesList;
 })
+
+/*
+    This fetches all the bugs of the new version
+*/
+fetch('../../bugs.json')
+.then(response => response.json())
+.then(data => {
+    let bugElement = document.getElementById("bugs");
+    const changesList = data
+        .filter(version => version.previousVersion == false)
+        .map(bug => 
+        `
+        <div class="col-12 col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="mb-2">
+                        🐞 ${bug.bug_name}
+                    </p>
+                    <h6><span class="badge text-bg-secondary">Version ${bug.version_number}</span></h6>
+                    <small class="text-muted">${bug.version_date}</small>
+                </div>
+            </div>
+        </div>
+        `)
+        .join('');
+    
+        bugElement.innerHTML = changesList;
+})
