@@ -31,12 +31,16 @@ export function saveAvatar(){
             Swal.fire({
                 title: "Avatar Updated!",
                 icon: "success",
-                draggable: true
-            });
+                draggable: true,
+                showConfirmButton: false,
+                timer: 1000,
+            })
             localStorage.setItem("current-avatar", JSON.stringify(avatarObject));
         }
     })
-    window.location.reload();
+    setTimeout(() => {
+        window.location.reload();
+    }, 1000);
 
 }
 
