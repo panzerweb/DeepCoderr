@@ -1,6 +1,6 @@
 import { playTimer, pauseTimer, resetTimer, reduceTime, plusTime, restoreTimer, updateTimer } from "./resources/js/sdc_pomodoro.js";
 import { formValidation, acceptData, renderData, deleteTask, editTask, confirmEdit, checkTask } from "./resources/js/todo.js";
-import { saveAvatar } from "./resources/js/image.js";
+import { previewAvatar, saveAvatar } from "./resources/js/image.js";
 
 //Pomodoro Timer
 window.playTimer = playTimer;
@@ -13,6 +13,16 @@ window.addEventListener("load", () => {
     restoreTimer();
 })
 
+// Previewing avatar
+const fileInput = document.getElementById("choose-avatar");
+const saveBtn = document.getElementById("save-avatar-btn");
+fileInput.addEventListener("change", () => {
+    previewAvatar();
+})
+saveBtn.addEventListener("click", () => {
+    saveAvatar();
+})
+
 //** Todo-List
 window.formValidation = formValidation;
 window.acceptData = acceptData;
@@ -21,12 +31,6 @@ window.deleteTask = deleteTask;
 window.editTask = editTask;
 window.confirmEdit = confirmEdit;
 window.checkTask = checkTask;
-
-let saveAvatarBtn = document.getElementById("save-avatar-btn");
-
-saveAvatarBtn.addEventListener("click", () => {
-    saveAvatar();
-})
 
 // Redirect to homepage
 let returnHome = document.getElementById("returnHome");

@@ -25,38 +25,50 @@
     },
     {
         "changes": "Sliding images initialized.",
-        "previousVersion": false,
+        "previousVersion": true,
         "version_date": "June 23, 2025",
         "version_number": 1.2
     },
     {
         "changes": "Stores current time on local storage.",
-        "previousVersion": false,
+        "previousVersion": true,
         "version_date": "June 23, 2025",
         "version_number": 1.2
     },
     {
         "changes": "Notifies user when timer stops.",
-        "previousVersion": false,
+        "previousVersion": true,
         "version_date": "June 26, 2025",
         "version_number": 1.2
     },
     {
         "changes": "Adds app version history and update change log.",
-        "previousVersion": false,
+        "previousVersion": true,
         "version_date": "June 26, 2025",
         "version_number": 1.2
     },
     {
         "changes": "Alarm sound when timer is up.",
-        "previousVersion": false,
+        "previousVersion": true,
         "version_date": "June 27, 2025",
         "version_number": 1.2
     },
     {
         "changes": "Chosen avatar can now be saved",
-        "previousVersion": false,
+        "previousVersion": true,
         "version_date": "July 02, 2025",
         "version_number": 1.2
+    },
+    {
+        "changes": "Custom image instead of preselected avatar are implemented",
+        "previousVersion": false,
+        "version_date": "July 24, 2025",
+        "version_number": 1.3
+    },
+    {
+        "changes": "Favicon is now uploaded",
+        "previousVersion": false,
+        "version_date": "July 24, 2025",
+        "version_number": 1.3
     }
 ]

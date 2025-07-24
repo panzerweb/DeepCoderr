@@ -8,6 +8,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link rel="shortcut icon" href="../../assets/img/DeepCoderr Icon.png" type="image/x-icon">
 
         <!-- Bootstrap CSS 5.3-->
         <link rel="stylesheet" href="../css/bootstrap5/css/bootstrap.min.css">
@@ -41,6 +42,7 @@
             <nav class="navbar">
                 <div class="container">
                     <span class="navbar-brand mb-0 h1 text-warning" id="returnHome" style="cursor: pointer;">
+                        <img src="../../assets/img/DeepCoderr Icon.png" alt="">
                         DeepCoderr
                     </span>
 
@@ -62,44 +64,27 @@
                     <div class="col-12 col-lg-4">
                         <div class="shadow border border-1 border-dark p-4 timer-wrapper rounded-3">
                             <div class="d-grid gap-2">
-                                <button
-                                    type="button"
-                                    name="choose-avatar-btn"
-                                    id="choose-avatar-btn"
-                                    class="btn btn-warning rounded-0"
-                                    
-                                >
-                                    Choose Avatar
-                                </button>
+                                <div class="mb-3">
+                                    <label for="choose-avatar" class="form-label btn btn-warning rounded-2 w-100">Choose Image</label>
+                                    <input
+                                        type="file"
+                                        class="form-control "
+                                        name="choose-avatar"
+                                        id="choose-avatar"
+                                        placeholder=""
+                                        accept=".jpg, .jpeg, .png"
+                                        aria-describedby="fileHelpId"
+                                        style="display: none;"
+                                    />
+                                </div>
+                                
                             </div>
 
                             <div class="current-avatar-div">
                                 <div class="supercoder-gif-card" id="current-avatar">
-                                    
+                                    <img src="" id="file-preview" alt="Image Chosen" class="w-100 img-fluid h-50">
                                 </div>
                             </div>
-                            <section class="splide d-none" aria-label="Splide Basic HTML Example">
-                                <div class="splide__track">
-                                        <ul class="splide__list">
-                                            <li class="splide__slide">
-                                                <div class="supercoder-gif-card">
-                                                    <img src="../../assets/img/supercoder.jpg" alt="Supercode-gif" class="w-100 img-fluid">
-                                                </div>
-                                            </li>
-                                            <li class="splide__slide">
-                                                <div class="supercoder-gif-card">
-                                                    <img src="../../assets/img/deepcoder.jpg" alt="Supercode-gif" class="w-100 img-fluid">
-                                                </div>
-                                            </li>
-                                            <li class="splide__slide">
-                                                <div class="supercoder-gif-card">
-                                                    <img src="../../assets/img/casualcoder.jpg" alt="Supercode-gif" class="w-100 img-fluid">
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    
-                                </div>
-                            </section>
                             <div class="d-grid gap-2">
                                 <button
                                     type="button"
@@ -183,16 +168,6 @@
         <!-- JavaScript Files -->
         
         <script type="module" src="../../app.js"></script>
-        <script>
-            document.addEventListener( 'DOMContentLoaded', function() {
-                var splide = new Splide( '.splide', {
-                    type   : 'loop',
-                    perMove: 1,
-                } );
-                splide.mount();
-                console.log(splide);
-            } );
-        </script>
         
     </body>
 </html>

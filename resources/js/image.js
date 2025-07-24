@@ -1,65 +1,41 @@
-let splideList = document.querySelectorAll('.splide__slide');
-let chooseBtn = document.getElementById("choose-avatar-btn");
 
-chooseBtn.addEventListener("click", () => {
-    let splideSection = document.querySelector(".splide");
-    let saveBtn = document.getElementById("save-avatar-btn");
-    let currentAvatarWrapper = document.querySelector(".supercoder-gif-card");
-    console.log(currentAvatarWrapper);
+const preview = document.getElementById("file-preview");
+const fileInput = document.getElementById("choose-avatar");
+const saveBtn = document.getElementById("save-avatar-btn");
 
-    if (chooseBtn) {
-        splideSection.classList.toggle("d-none");
-        saveBtn.classList.toggle("d-none");
-        currentAvatarWrapper.classList.toggle("d-none");
-    }
-
-
-})
-
-export function saveAvatar(){
-    splideList.forEach((element, index) => {
-        // console.log(element);
-        let containsIsVisible = element.classList.contains("is-visible");
-        if (containsIsVisible) {
-            let imageAvatar = element.querySelector(".supercoder-gif-card img");
-            console.log(imageAvatar.src);
-
-            const avatarObject = {
-                avatar: imageAvatar.src,
-            };
-
-            Swal.fire({
-                title: "Avatar Updated!",
-                icon: "success",
-                draggable: true,
-                showConfirmButton: false,
-                timer: 1000,
-            })
-            localStorage.setItem("current-avatar", JSON.stringify(avatarObject));
-        }
-    })
-    setTimeout(() => {
-        window.location.reload();
-    }, 1000);
-
+// Check if avatar is already saved in localStorage
+const savedAvatar = localStorage.getItem("userAvatar");
+if (savedAvatar) {
+    preview.src = savedAvatar;
 }
 
-function displayCurrentAvatar() {
-    let currentAvatarWrapper = document.querySelector(".supercoder-gif-card");
-    currentAvatarWrapper.innerHTML = '';
+// Preview selected image
+export function previewAvatar(){
+    const file = fileInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            saveBtn.classList.remove("d-none");
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
-    const savedAvatar = JSON.parse(localStorage.getItem("current-avatar"));
-    if (saveAvatar) {
-        const img = document.createElement("img");
-        img.classList.add("w-100");
-        img.src = savedAvatar.avatar;
-        currentAvatarWrapper.appendChild(img);
+// Save avatar to localStorage
+export function saveAvatar() {
+    const currentSrc = preview.src;
+    if (currentSrc) {
+        localStorage.setItem("userAvatar", currentSrc);
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Avatar Saved!",
+            showConfirmButton: false,
+            timer: 1500
+        });
+
+        saveBtn.classList.add("d-none");
     }
 
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    let currentAvatar = JSON.parse(localStorage.getItem("current-avatar"));
-    console.log(currentAvatar);
-    displayCurrentAvatar();
-})
