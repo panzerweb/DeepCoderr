@@ -53,9 +53,8 @@ export let renderData = () => {
         taskDiv.innerHTML = 
             `
                 <div class="no-task-placeholder text-center my-4">
-                    <img src="path/to/your/lofi-icon.png" alt="No Task Icon" width="60" class="mb-2" />
-                    <p class="text-muted mb-0 fw-light" style="font-size: 1.1rem;">You're all caught up 🎉</p>
-                    <small class="text-light">Take a break or add something new.</small>
+                    <p class="mb-0 fw-bold text-light" style="font-size: 1.5rem;">You have no task!</p>
+                    <img src="../../assets/icon/empty_list.svg" alt="No Task Icon" class="mb-2" />
                 </div>
             `;
         return;

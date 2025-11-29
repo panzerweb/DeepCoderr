@@ -54,6 +54,7 @@
 
         <main>
             <div class="container">
+                <!-- Main Interface for Tasks and Timer -->
                 <div class="row justify-content-center align-items-center my-5 gap-2">
                     <!-- Pomodoro Timer -->
                     <div class="col-12 col-lg-4">
@@ -77,9 +78,10 @@
 
                             <div class="current-avatar-div">
                                 <div class="supercoder-gif-card" id="current-avatar">
-                                    <img src="" id="file-preview" alt="Image Chosen" class="w-100 img-fluid h-50">
+                                    <img src="" id="file-preview" alt="Image Chosen" class="w-100 img-fluid">
                                 </div>
                             </div>
+
                             <div class="d-grid gap-2">
                                 <button
                                     type="button"
@@ -152,17 +154,76 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Music Player -->
+                <div class="position-fixed bottom-0 end-0 m-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <div>
+                            <h5>
+                                <span class="badge text-bg-dark">Currently Playing:
+
+                                    <span id="current_played_song" class="text-warning">
+                                        <!-- Insert here the current song from local storage -->
+                                        None
+                                    </span>
+
+                                </span>
+                            </h5>
+                        </div>
+                        <div>
+                            <button
+                                type="button"
+                                name="music-toggle"
+                                id="music-toggler"
+                                class="btn btn-warning"
+                                data-bs-toggle="modal" data-bs-target="#musicList"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-music-note-list" viewBox="0 0 16 16">
+                                    <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2"/>
+                                    <path fill-rule="evenodd" d="M12 3v10h-1V3z"/>
+                                    <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1z"/>
+                                    <path fill-rule="evenodd" d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for music list -->
+                <div class="modal fade" id="musicList" tabindex="-1" aria-labelledby="musicListLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header bg-success">
+                            <h1 class="modal-title fs-5 text-light" id="musicListLabel">Play some music</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body h-50 overflow-auto" style="max-height: 400px;">
+                            <div class="" id="music-list-container">
+                                <!-- Dynamic Card for Songs -->
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-success">Save changes</button> -->
+                        </div>
+                        </div>
+                    </div>
+                </div
             </div>
         </main>
 
         <footer>
             <!-- place footer here -->
         </footer>
+
         <!-- Bootstrap JavaScript Libraries -->
          <script src="../css/bootstrap5/js/bootstrap.bundle.min.js"></script>
         <!-- JavaScript Files -->
         
+        <script src="../js/music.js"></script>
         <script type="module" src="../../app.js"></script>
+
+
         
     </body>
 </html>

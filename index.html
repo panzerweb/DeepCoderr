@@ -97,9 +97,11 @@
         <script src="./resources/css/bootstrap5/js/bootstrap.bundle.min.js"></script>
     
         <script type="module" src="./app.js"></script>
+
+        <!-- Notifications Here -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                const notification = ''; 
+                let notification = ''; 
                 if (!("Notification" in window)) {
                     // Check if the browser supports notifications
                     alert("This browser does not support desktop notification");
@@ -123,6 +125,11 @@
                 }
             })
         </script>
+
+        <!-- 
+            Showing patch overview
+
+        -->
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 let version = 1.3;
@@ -130,32 +137,36 @@
                 fetch('updates.json')
                 .then(response => response.json())
                 .then(data => {
-                    const changesList = data.filter(version => version.previousVersion == false)
+                    const previousVersionPatches = data.filter((v) => v.previousVersion == false);
+                    const changesList = previousVersionPatches
                                             .map(update => `<li>${update.changes}</li>`)
                                             .join('');
-                    Swal.fire({
+
+                    if (previousVersionPatches.length > 0) {
+                        Swal.fire({
                         position: 'bottom-end',
                         title: "🚀 What's New!",
-                        html: 
-                        `
-                            <div style="text-align: left; font-size: 14px;">
-                            <p>We’ve made some exciting updates for <strong>DeepCoderr version ${version}</strong>:</p>
-                            <ul style="padding-left: 20px; margin: 0;">
-                                ${changesList}
-                            </ul>
-                            <p style="margin-top: 10px;">Stay tuned for more updates. Thanks for using <strong>DeepCoderr!</strong></p>
-                            <a href="resources/pages/app_versions.html">See Versions</a>
-                            </div>
-                        `,
-                        // icon: "success",
-                        backdrop: false,
-                        showConfirmButton: true,
-                        toast: true,
-                        // timer: 10000,
-                        timerProgressBar: true,
-                        draggable: true
-                    });
-                    console.log(changesList);
+                            html: 
+                            `
+                                <div style="text-align: left; font-size: 14px;">
+                                <p>We’ve made some exciting updates for <strong>DeepCoderr version ${version}</strong>:</p>
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    ${changesList}
+                                </ul>
+                                <p style="margin-top: 10px;">Stay tuned for more updates. Thanks for using <strong>DeepCoderr!</strong></p>
+                                <a href="resources/pages/app_versions.html">See Versions</a>
+                                </div>
+                            `,
+                            // icon: "success",
+                            backdrop: false,
+                            showConfirmButton: true,
+                            toast: true,
+                            // timer: 10000,
+                            timerProgressBar: true,
+                            draggable: true
+                        });
+                        console.log(changesList);
+                    }
                 })
                 .catch(error => {
                     console.log(error);
